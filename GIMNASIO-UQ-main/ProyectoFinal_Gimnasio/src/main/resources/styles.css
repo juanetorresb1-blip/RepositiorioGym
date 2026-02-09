@@ -1,0 +1,67 @@
+/* --- Estilos Generales --- */
+
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #F4F4F4; /* Un gris muy claro para el fondo general */
+}
+
+/* --- Estilos para Botones --- */
+.button {
+    -fx-background-color: #2E7D32; /* Verde oscuro */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15 8 15;
+}
+
+.button:hover {
+    -fx-background-color: #388E3C; /* Un verde un poco más claro al pasar el ratón */
+}
+
+.button:pressed {
+    -fx-background-color: #1B5E20; /* Un verde más oscuro al presionar */
+}
+
+/* --- Estilos para Etiquetas y Títulos --- */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.label-titulo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2E7D32; /* Verde oscuro para títulos */
+}
+
+/* --- Estilos para Paneles de Pestañas (Tabs) --- */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #E0E0E0; /* Fondo del área de cabeceras */
+}
+
+.tab-pane .tab {
+    -fx-background-color: #F4F4F4;
+    -fx-padding: 5 20 5 20;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #FFFFFF; /* Pestaña seleccionada en blanco */
+    -fx-border-color: #2E7D32;
+    -fx-border-width: 2 0 0 0; /* Borde verde superior */
+}
+
+/* --- Estilos para Tablas --- */
+.table-view .column-header-background {
+    -fx-background-color: #2E7D32;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* --- Estilos para la Vista de Login --- */
+.login-pane {
+    /* La imagen de fondo se establecerá directamente en el FXML */
+    -fx-background-color: #FFFFFF;
+}

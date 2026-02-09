@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProyectoFinal_Gimnasio.ViewController.RecepcionistaViewController">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 10;">
+            <Label styleClass="label-titulo" text="Panel del Recepcionista" />
+            <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                <Label fx:id="receptionistNameLabel" prefHeight="18.0" prefWidth="163.0" text="Bienvenido, Recepcionista" />
+                <Button onAction="#cerrarSesion" text="Cerrar Sesión" />
+            </HBox>
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Registro de Usuarios">
+                    <content>
+                        <HBox spacing="20.0" style="-fx-padding: 20;">
+                            <VBox fx:id="usuarioInputVBox" prefWidth="300.0" spacing="10.0">
+                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Registro/Edición de Usuario" />
+                                <TextField fx:id="nombreField" promptText="Nombre" />
+                                <TextField fx:id="idField" promptText="Identificación" />
+                                <TextField fx:id="edadField" promptText="Edad" />
+                                <TextField fx:id="telefonoField" promptText="Teléfono" />
+                                <ComboBox fx:id="membresiaBox" prefWidth="300.0" promptText="Tipo de Membresía" />
+                                <ComboBox fx:id="duracionPlanBox" prefWidth="300.0" promptText="Duración del Plan" />
+                                <ComboBox fx:id="tipoUsuarioBox" prefWidth="300.0" promptText="Tipo de Usuario" />
+                                <Label fx:id="descuentoLabel" style="-fx-font-style: italic;" text="Descuento Estudiante: 15%" visible="false" />
+                                <Label fx:id="beneficioEspecialLabel" style="-fx-font-style: italic;" text="Beneficio Trabajador: Casillero gratuito" visible="false" />
+                                <TextField fx:id="rutaImagenField" promptText="Ruta de Imagen (opcional)" />
+                                <HBox spacing="10.0">
+                                    <Button onAction="#registrarUsuario" text="Registrar" />
+                                    <Button onAction="#modificarUsuario" text="Modificar" />
+                                    <Button onAction="#eliminarUsuario" text="Eliminar" />
+                                </HBox>
+                                <HBox spacing="10.0" style="-fx-padding: 20 0 0 0;">
+                                    <Button onAction="#generarReporteUsuariosActivos" text="Reporte de Activos" />
+                                    <Button onAction="#generarReporteVencimientos" text="Reporte de Vencimientos" />
+                                </HBox>
+                            </VBox>
+                            <TableView fx:id="usuariosTable" HBox.hgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="nombreColumn" prefWidth="150.0" text="Nombre" />
+                                    <TableColumn fx:id="idColumn" prefWidth="120.0" text="Identificación" />
+                                    <TableColumn fx:id="edadColumn" prefWidth="60.0" text="Edad" />
+                                    <TableColumn fx:id="telefonoColumn" prefWidth="120.0" text="Teléfono" />
+                                    <TableColumn fx:id="membresiaColumn" prefWidth="150.0" text="Membresía" />
+                                </columns>
+                            </TableView>
+                        </HBox>
+                    </content>
+                </Tab>
+                <Tab text="Reserva de Clases">
+                    <content>
+                        <HBox spacing="20.0" style="-fx-padding: 20;">
+                            <VBox prefWidth="300.0" spacing="15.0">
+                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Inscribir Usuario a Clase" />
+                                <ComboBox fx:id="reservaUsuarioBox" prefWidth="300.0" promptText="Seleccionar Usuario" />
+                                <ComboBox fx:id="reservaClaseBox" prefWidth="300.0" promptText="Seleccionar Clase" />
+                                <Button onAction="#inscribirUsuarioEnClase" text="Inscribir" />
+                            </VBox>
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <Label style="-fx-font-weight: bold;" text="Detalles de la Clase Seleccionada:" />
+                                <Label fx:id="claseInfoLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="450.0" style="-fx-border-color: lightgray; -fx-padding: 5;" text="Seleccione una clase para ver sus detalles..." wrapText="true" />
+                            </VBox>
+                        </HBox>
+                    </content>
+                </Tab>
+                <Tab text="Control de Acceso">
+                    <content>
+                        <VBox spacing="10.0" style="-fx-padding: 20;">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Validación de Acceso" />
+                            <TextField fx:id="accesoIdField" maxWidth="300.0" promptText="Identificación del Usuario" />
+                            <Button onAction="#validarAcceso" text="Validar Acceso" />
+                            <Label fx:id="accesoResultadoLabel" style="-fx-font-weight: bold;" text="Estado: " wrapText="true" />
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
